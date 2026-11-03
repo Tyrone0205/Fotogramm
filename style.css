@@ -141,6 +141,7 @@ main {
 
 .foto-collection {
     display: flex;
+    justify-content: center;
     width: 100%;
     gap: 16px;
     flex-wrap: wrap;
@@ -153,6 +154,32 @@ main {
     flex-shrink: 0;
     object-fit: cover;
     border: 2px solid rgba(18, 70, 88, 1);
+}
+
+.picture-dialog {
+    width: 690px;
+    height: 675px;
+    background-color: rgba(9, 33, 42, 1);
+    padding: 56px 64px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    border-radius: 40px;
+}
+
+.picture-dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.picture-dialog-header > p {
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'Figtree';
+    color: white;
 }
 
 @media screen and (min-width: 1440px) {
