@@ -46,6 +46,33 @@ header {
     font-family: 'Figtree';
 }
 
+footer {
+    height: 128px;
+    width: 100%;
+    background-color: rgba(9, 33, 42, 1);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content-company-information {
+    display: flex;
+    gap: 8px;
+    text-align: center;
+}
+
+.footer-content-company-information > p {
+    font-size: 22px;
+    font-weight: 800;
+    font-family: 'Figtree';
+    color: white;
+}
+
+
 main {
     display: flex;
     flex-direction: column;
