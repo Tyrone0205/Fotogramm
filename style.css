@@ -140,6 +140,12 @@ main {
     font-weight: 800;
 }
 
+.foto-collection {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+}
+
 @media screen and (min-width: 1440px) {
 
     .content-container,
