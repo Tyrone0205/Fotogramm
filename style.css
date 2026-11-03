@@ -41,15 +41,24 @@ header {
 
 .header-content>p {
     color: white;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
     font-family: 'Figtree';
 }
 
+/*clip-path: ellipse(
+    horizontaler-radius
+    vertikaler-radius
+    at position-x position-y
+);
+clip-path = was der sichtbare bereich des html elements ist
+elipse = macht einen elipsenförmigen bereich*/
 footer {
     height: 128px;
     width: 100%;
     background-color: rgba(9, 33, 42, 1);
+
+    clip-path: ellipse(84% 100% at 50% 100%);
 }
 
 .footer-content {
@@ -57,38 +66,46 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 16px;
 }
 
 .footer-content-company-information {
     display: flex;
     gap: 8px;
+    align-items: center;
     text-align: center;
+    width: 135px;
+}
+
+.footer-content-company-information > img {
+    height: 35px;
 }
 
 .footer-content-company-information > p {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 800;
     font-family: 'Figtree';
     color: white;
 }
 
-.album-container {
+.footer-content-company-address {
     display: flex;
-    flex-direction: column;
-    gap: 80px;
     align-items: center;
-    width: 100%;
-    padding: 0px 140px
+    text-align: center;
+    gap: 8px;
+    color: rgba(153, 172, 179, 1);
 }
 
-.album-container>p {
-    color: white;
-    font-size: 56px;
-    font-family: 'Figtree';
+.footer-content-company-address > img {
+    height: 15px;
+}
+
+.footer-content-company-address > p {
+    font-size: 16px;
     font-weight: 800;
+    font-family: 'Figtree';
+    color: rgba(153, 172, 179, 1);
 }
-
-
 
 main {
     display: flex;
@@ -105,6 +122,22 @@ main {
     height: 100%;
     margin: 0 auto;
 
+}
+
+.album-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+    padding: 0px 140px
+}
+
+.album-container>p {
+    color: white;
+    font-size: 56px;
+    font-family: 'Figtree';
+    font-weight: 800;
 }
 
 @media screen and (min-width: 1440px) {
