@@ -72,6 +72,23 @@ footer {
     color: white;
 }
 
+.album-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+    padding: 0px 140px
+}
+
+.album-container>p {
+    color: white;
+    font-size: 56px;
+    font-family: 'Figtree';
+    font-weight: 800;
+}
+
+
 
 main {
     display: flex;
