@@ -23,7 +23,7 @@ function createDialog(img, alt, index) {
     <dialog id="myDialog" class="picture-dialog">
         <header class="picture-dialog-header">
             <p id="dialogTitel">${alt}</p>
-            <img src="./assets/icon/close.svg" alt="Closing Icon" onclick="closeDialog()"> 
+            <button class="picture-dialog-header-closing-picture" onclick="closeDialog()"></button> 
         </header>
 
         <main>
