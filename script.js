@@ -101,6 +101,10 @@ function updateDialog() {
 }
 
 function closeDialogOutside(event) {
+    if (event.target !== dialogRef) {
+        return;
+    }
+
     const rect = dialogRef.getBoundingClientRect();
 
     const isOutside =
