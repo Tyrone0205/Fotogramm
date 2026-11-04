@@ -2,6 +2,7 @@ const fotos = ['./assets/img/ice_ozean.jpg', './assets/img/animated_city.jpg', '
 const fotosAlt = ['Ice Ozean Picture', 'Animated City Picture', 'Dark Clouds Picture', 'Bird Picture', 'Hurican Picture', 'White Forest Picture', 'Bird in the Water Picture', 'Man in the Osean Picture', 'Bird on Stone Picture', 'Jagura Babies Picture', 'Snow Mountains Picture', 'White Tree Picture'];
 let fotosRef = document.getElementById('myFotoCollection');
 let bodyRef = document.getElementById('myBody');
+let aktuellerIndex = 0;
 
 function showFotoAlbum() {
     fotosRef.innerHTML = "";
@@ -52,4 +53,26 @@ function closeDialog() {
     dialogRef.remove();
 }
 
+function switchDialog(richtung) {
+    aktuellerIndex += richtung;
 
+    if (aktuellerIndex >= fotos.length) {
+        aktuellerIndex = 0;
+    }
+    else if (aktuellerIndex < 0) {
+        aktuellerIndex = fotos.length - 1;
+    }
+
+    document.getElementById('dialogBild').setAttribute('src', fotos[aktuellerIndex]);
+    document.getElementById('dialogBild').setAttribute('alt', fotosAlt[aktuellerIndex]);
+
+    document.getElementById('dialogTitel').innerHTML = fotosAlt[aktuellerIndex];
+    document.getElementById('dialogZaehler').innerHTML = `${aktuellerIndex + 1} / ${fotos.length}`;
+    // document.getElementById('dialogTitel').textContent = fotosRef[aktuellerIndex];
+
+    // document.getElementById('dialogBild').src = fotos[aktuellerIndex];
+    // document.getElementById('dialogBild').alt = fotosRef[aktuellerIndex];
+
+    // document.getElementById('dialogZaehler').textContent =
+    //     `${aktuellerIndex + 1} / ${fotos.length}`;
+}
