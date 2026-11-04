@@ -299,7 +299,7 @@ body>main {
 }
 
 .arrow-right {
-    background-image: url('/assets/img/arrow_right.png');
+    background-image: url('./assets/img/arrow_right.png');
 }
 
 .picture-dialog-footer>p {
