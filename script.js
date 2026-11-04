@@ -1,78 +1,102 @@
-const fotos = ['./assets/img/ice_ozean.jpg', './assets/img/animated_city.jpg', './assets/img/dark_clouds.png', './assets/img/bird.jpg', './assets/img/hurican.jpg', './assets/img/white_forest.jpg', './assets/img/bird_in_the_water.jpg', './assets/img/man_in_the_osean.jpg', './assets/img/bird_on_stone.jpg', './assets/img/jagura_babies.jpg', './assets/img/snow_mountains.jpg', './assets/img/white_tree.jpg'];
-const fotosAlt = ['Ice Ozean Picture', 'Animated City Picture', 'Dark Clouds Picture', 'Bird Picture', 'Hurican Picture', 'White Forest Picture', 'Bird in the Water Picture', 'Man in the Osean Picture', 'Bird on Stone Picture', 'Jagura Babies Picture', 'Snow Mountains Picture', 'White Tree Picture'];
-let fotosRef = document.getElementById('myFotoCollection');
-let bodyRef = document.getElementById('myBody');
+const FOTOS = [
+    './assets/img/ice_ozean.jpg',
+    './assets/img/animated_city.jpg',
+    './assets/img/dark_clouds.png',
+    './assets/img/bird.jpg',
+    './assets/img/hurican.jpg',
+    './assets/img/white_forest.jpg',
+    './assets/img/bird_in_the_water.jpg',
+    './assets/img/man_in_the_osean.jpg',
+    './assets/img/bird_on_stone.jpg',
+    './assets/img/jagura_babies.jpg',
+    './assets/img/snow_mountains.jpg',
+    './assets/img/white_tree.jpg'
+];
+
+const FOTOS_ALT = [
+    'Ice Ozean Picture',
+    'Animated City Picture',
+    'Dark Clouds Picture',
+    'Bird Picture',
+    'Hurican Picture',
+    'White Forest Picture',
+    'Bird in the Water Picture',
+    'Man in the Osean Picture',
+    'Bird on Stone Picture',
+    'Jagura Babies Picture',
+    'Snow Mountains Picture',
+    'White Tree Picture'
+];
+
+const fotosRef = document.getElementById('myFotoCollection');
+const dialogRef = document.getElementById('myDialog');
+const dialogBildRef = document.getElementById('dialogBild');
+const dialogTitelRef = document.getElementById('dialogTitel');
+const dialogZaehlerRef = document.getElementById('dialogZaehler');
+
 let aktuellerIndex = 0;
 
-function showFotoAlbum() {
-    fotosRef.innerHTML = "";
+function init() {
+    showFotoAlbum();
 
-    for (let index = 0; index < fotos.length; index++) {
-        fotosRef.innerHTML += `
-            <img
-                src="${fotos[index]}"
-                alt="${fotosAlt[index]}"
-                onclick="openDialog('${fotos[index]}', '${fotosAlt[index]}', ${index})"
-            >
-        `;
+    document.getElementById('dialogSchliessen').addEventListener('click', closeDialog);
+    document.getElementById('dialogZurueck').addEventListener('click', () => switchDialog(-1));
+    document.getElementById('dialogWeiter').addEventListener('click', () => switchDialog(1));
+}
+
+function showFotoAlbum() {
+    fotosRef.replaceChildren();
+
+    for (let index = 0; index < FOTOS.length; index++) {
+        const fotoElement = createFotoElement(index);
+        fotosRef.appendChild(fotoElement);
     }
 }
 
-function createDialog(img, alt, index) {
-    bodyRef.insertAdjacentHTML('beforeend', `
-    <dialog id="myDialog" class="picture-dialog">
-        <header class="picture-dialog-header">
-            <p id="dialogTitel">${alt}</p>
-            <button class="picture-dialog-header-closing-picture" onclick="closeDialog()"></button> 
-        </header>
+function createFotoElement(index) {
+    const button = document.createElement('button');
+    const bild = document.createElement('img');
 
-        <main>
-            <img id="dialogBild" src="${img}" alt="${alt}">
-        </main>
+    button.type = 'button';
+    button.className = 'foto-button';
+    button.setAttribute('aria-label', `${FOTOS_ALT[index]} öffnen`);
+    button.addEventListener('click', () => openDialog(index));
 
-        <footer class="picture-dialog-footer">
-            <button class="arrow-button arrow-left" aria-label="vorheriges Bild" onclick="switchDialog(-1)"></button>
-            <p id="dialogZaehler">${index + 1} / ${fotos.length}</p>
-            <button class="arrow-button arrow-right" aria-label="nächstes Bild" onclick="switchDialog(1)"></button>
-        </footer>
-    </dialog>
-    `);
+    bild.src = FOTOS[index];
+    bild.alt = '';
+
+    button.appendChild(bild);
+    return button;
 }
 
-function openDialog(img, alt, index) {
+function openDialog(index) {
     aktuellerIndex = index;
-    createDialog(img, alt, index);
-
-    const dialogRef = document.getElementById('myDialog');
+    updateDialog();
     dialogRef.showModal();
 }
 
 function closeDialog() {
-    const dialogRef = document.getElementById('myDialog');
     dialogRef.close();
-    dialogRef.remove();
 }
 
 function switchDialog(richtung) {
     aktuellerIndex += richtung;
 
-    if (aktuellerIndex >= fotos.length) {
+    if (aktuellerIndex >= FOTOS.length) {
         aktuellerIndex = 0;
+    } else if (aktuellerIndex < 0) {
+        aktuellerIndex = FOTOS.length - 1;
     }
-    else if (aktuellerIndex < 0) {
-        aktuellerIndex = fotos.length - 1;
-    }
 
-    document.getElementById('dialogBild').setAttribute('src', fotos[aktuellerIndex]);
-    document.getElementById('dialogBild').setAttribute('alt', fotosAlt[aktuellerIndex]);
-
-    document.getElementById('dialogTitel').innerHTML = fotosAlt[aktuellerIndex];
-    document.getElementById('dialogZaehler').innerHTML = `${aktuellerIndex + 1} / ${fotos.length}`;
-    // document.getElementById('dialogTitel').textContent = fotosRef[aktuellerIndex];
-
-    // document.getElementById('dialogBild').src = fotos[aktuellerIndex];
-    // document.getElementById('dialogBild').alt = fotosRef[aktuellerIndex];
-
-    // document.getElementById('dialogZaehler').textContent =
-    //     `${aktuellerIndex + 1} / ${fotos.length}`;
+    updateDialog();
 }
+
+function updateDialog() {
+    dialogBildRef.setAttribute('src', FOTOS[aktuellerIndex]);
+    dialogBildRef.setAttribute('alt', FOTOS_ALT[aktuellerIndex]);
+
+    dialogTitelRef.textContent = FOTOS_ALT[aktuellerIndex];
+    dialogZaehlerRef.textContent = `${aktuellerIndex + 1} / ${FOTOS.length}`;
+}
+
+init();
