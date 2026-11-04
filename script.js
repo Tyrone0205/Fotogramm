@@ -2,7 +2,6 @@ const fotos = ['./assets/img/ice_ozean.jpg', './assets/img/animated_city.jpg', '
 const fotosAlt = ['Ice Ozean Picture', 'Animated City Picture', 'Dark Clouds Picture', 'Bird Picture', 'Hurican Picture', 'White Forest Picture', 'Bird in the Water Picture', 'Man in the Osean Picture', 'Bird on Stone Picture', 'Jagura Babies Picture', 'Snow Mountains Picture', 'White Tree Picture'];
 let fotosRef = document.getElementById('myFotoCollection');
 let bodyRef = document.getElementById('myBody');
-let aktuellerIndex = 0;
 
 function showFotoAlbum() {
     fotosRef.innerHTML = "";
@@ -37,5 +36,13 @@ function createDialog(img, alt, index) {
         </footer>
     </dialog>
     `);
+}
+
+function openDialog(img, alt, index) {
+    aktuellerIndex = index;
+    createDialog(img, alt, index);
+
+    const dialogRef = document.getElementById('myDialog');
+    dialogRef.showModal();
 }
 
