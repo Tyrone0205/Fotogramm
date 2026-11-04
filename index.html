@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
 </head>
-<body>
-    
+
+<body id="myBody" onload="showFotoAlbum()">
+    <header>
+        <div class="content-container header-content">
+            <img src="./assets/icon/Group.svg" alt="Fotogramm Icon">
+            <p>Fotogram</p>
+        </div>
+    </header>
+    <main>
+        <div class="album-container content-container">
+            <p>Your Personal Photo Album</p>
+            <div id="myFotoCollection" class="foto-collection">
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content content-container">
+            <div class="footer-content-company-information">
+                <img src="./assets/icon/Icon.svg" alt="Developer Akademie">
+                <p>Developer Akademie</p>
+            </div>
+            <div class="footer-content-company-address">
+                <img src="./assets/icon/copyright (2).svg" alt="Copyright Icon">
+                <p>2023 Developer Akademie GmbH</p>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
