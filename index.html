@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,10 +10,10 @@
     <script src="./script.js" defer></script>
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <div class="content-container header-content">
-            <img src="./assets/icon/Group.svg" alt="Bild vom Icon der Website (Fotogram)">
+            <img src="./assets/icon/Group.svg" alt="Fotogram website logo">
             <p>Fotogram</p>
         </div>
     </header>
@@ -23,8 +22,8 @@
         <section class="album-container content-container">
             <h1>Your Personal Photo Album</h1>
 
-            <div id="myFotoCollection" class="foto-collection">
-                <!-- Bilder werden durch JavaScript erstellt -->
+            <div id="myPhotoCollection" class="photo-collection">
+                <!-- Images are created dynamically using JavaScript -->
             </div>
         </section>
     </main>
@@ -43,35 +42,36 @@
         </div>
     </footer>
 
-    <!-- Dialog für die Bildvorschau -->
-    <dialog id="myDialog" class="picture-dialog" aria-labelledby="dialogTitel">
+    <!-- Dialog for image preview -->
+    <dialog id="myDialog" class="picture-dialog" aria-labelledby="dialogTitle">
         <div class="picture-dialog-header">
-            <h2 id="dialogTitel"></h2>
+            <h2 id="dialogTitle"></h2>
 
             <button
-                id="dialogSchliessen"
+                id="dialogClose"
                 type="button"
                 class="picture-dialog-header-closing-picture"
-                aria-label="Close dialog">
+                aria-label="Close dialog"
+                autofocus>
             </button>
         </div>
 
         <div class="picture-dialog-content">
-            <img id="dialogBild" alt="">
+            <img id="dialogImage" alt="">
         </div>
 
         <div class="picture-dialog-footer">
             <button
-                id="dialogZurueck"
+                id="dialogPrevious"
                 type="button"
                 class="arrow-button arrow-left"
                 aria-label="Previous image">
             </button>
 
-            <p id="dialogZaehler"></p>
+            <p id="dialogCounter"></p>
 
             <button
-                id="dialogWeiter"
+                id="dialogNext"
                 type="button"
                 class="arrow-button arrow-right"
                 aria-label="Next image">
