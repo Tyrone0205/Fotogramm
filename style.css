@@ -157,6 +157,10 @@ body>main {
     border: 2px solid rgba(18, 70, 88, 1);
 }
 
+.foto-collection>img:hover {
+    border: 2px solid rgba(107, 193, 225, 1);
+}
+
 .picture-dialog {
     width: 690px;
     height: 675px;
@@ -211,6 +215,10 @@ body>main {
 
 .picture-dialog-header-closing-picture:hover {
     background-color: rgba(18, 70, 88, 1);
+}
+
+.picture-dialog-header-closing-picture:checked {
+    background-color: rgba(13, 50, 64, 1);
 }
 
 /*Dient dazu um weiße Umrandung beim Button zu entfernen (Auto-Fokus bei Button)*/
