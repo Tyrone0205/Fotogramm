@@ -22,7 +22,7 @@ body {
     padding-top: 160px;
 }
 
-header {
+body>header {
     position: fixed;
     top: 0;
     left: 0;
@@ -53,7 +53,7 @@ header {
 );
 clip-path = was der sichtbare bereich des html elements ist
 elipse = macht einen elipsenförmigen bereich*/
-footer {
+body>footer {
     height: 128px;
     width: 100%;
     background-color: rgba(9, 33, 42, 1);
@@ -77,11 +77,11 @@ footer {
     width: 135px;
 }
 
-.footer-content-company-information > img {
+.footer-content-company-information>img {
     height: 35px;
 }
 
-.footer-content-company-information > p {
+.footer-content-company-information>p {
     font-size: 18px;
     font-weight: 800;
     font-family: 'Figtree';
@@ -96,18 +96,18 @@ footer {
     color: rgba(153, 172, 179, 1);
 }
 
-.footer-content-company-address > img {
+.footer-content-company-address>img {
     height: 15px;
 }
 
-.footer-content-company-address > p {
+.footer-content-company-address>p {
     font-size: 16px;
     font-weight: 800;
     font-family: 'Figtree';
     color: rgba(153, 172, 179, 1);
 }
 
-main {
+body>main {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -147,7 +147,7 @@ main {
     flex-wrap: wrap;
 }
 
-.foto-collection > img {
+.foto-collection>img {
     height: 150px;
     width: 150px;
     border-radius: 16px;
@@ -162,11 +162,23 @@ main {
     background-color: rgba(9, 33, 42, 1);
     padding: 56px 64px;
 
+    position: fixed;
+    /*Positionierung relativ zum Viewport.*/
+    inset: 0;
+    /*Setzt top, right, bottom und left auf 0.*/
+    margin: auto;
+    /*Zentriert Dialog automatisch vertikal & horizontal*/
+
+    border-radius: 40px;
+
+    border: none;
+    overflow: hidden;
+}
+
+.picture-dialog[open] { /*Durch Display flex überschreibt es die default werde von einem dialog und man muss sie deshalb hierhin verlagern*/
     display: flex;
     flex-direction: column;
     gap: 48px;
-
-    border-radius: 40px;
 }
 
 .picture-dialog-header {
@@ -175,12 +187,54 @@ main {
     align-items: center;
 }
 
-.picture-dialog-header > p {
+.picture-dialog-header>p {
     font-size: 24px;
     font-weight: 700;
     font-family: 'Figtree';
     color: white;
 }
+
+.picture-dialog>main>img {
+    width: 560px;
+    height: 375px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.picture-dialog-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+}
+
+.arrow-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    background-color: rgba(253, 91, 79, 0.1);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+.arrow-left {
+    background-image: url('./assets/img/Union.png');
+
+}
+
+.arrow-right {
+    background-image: url('/assets/img/arrow_right.png');
+}
+
+.picture-dialog-footer > p {
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    font-family: 'Figtree';
+}
+
+
 
 @media screen and (min-width: 1440px) {
 
