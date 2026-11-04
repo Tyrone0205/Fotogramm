@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: rgba(6, 23, 30, 1);
-    padding-top: 160px;
+    padding-top: 200px;
 }
 
 body>header {
@@ -166,7 +166,7 @@ body>main {
     height: 675px;
     background-color: rgba(9, 33, 42, 1);
     padding: 56px 64px;
-    transform: translateY(-20px);
+    transform: translateY(-25px);
 
     position: fixed;
     /*Positionierung relativ zum Viewport.*/
@@ -389,7 +389,7 @@ body>main {
         padding: 32px 16px;
         border-radius: 40px;
         overflow-y: auto;
-        transform: translateY(60px)
+        transform: translateY(65px)
     }
 
     .picture-dialog[open] {
