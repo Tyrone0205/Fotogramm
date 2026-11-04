@@ -46,3 +46,10 @@ function openDialog(img, alt, index) {
     dialogRef.showModal();
 }
 
+function closeDialog() {
+    const dialogRef = document.getElementById('myDialog');
+    dialogRef.close();
+    dialogRef.remove();
+}
+
+
